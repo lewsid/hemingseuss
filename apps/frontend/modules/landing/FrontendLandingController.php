@@ -23,12 +23,12 @@ class FrontendLandingController extends FrontendController
 	 */
 	public function loadDefault()
 	{
-		$order  = 5;
+		$order  = 6;
 	    $length = 1000;
 	    
 	    $text = file_get_contents($_SERVER['APPLICATION_ROOT'] . '/web/text/farewell-to-arms.txt');
 
-	    for($i = 0; $i < 50; $i++)
+	    for($i = 0; $i < 65; $i++)
 	    {
 	    	$text .= file_get_contents($_SERVER['APPLICATION_ROOT'] . '/web/text/fox-in-sox.txt');
 	    	$text .= file_get_contents($_SERVER['APPLICATION_ROOT'] . '/web/text/oh-the-places.txt');
@@ -36,6 +36,8 @@ class FrontendLandingController extends FrontendController
 	    	$text .= file_get_contents($_SERVER['APPLICATION_ROOT'] . '/web/text/the-cat-in-the-hat.txt');
 	    	$text .= file_get_contents($_SERVER['APPLICATION_ROOT'] . '/web/text/the-sax.txt');
 	    }
+	    
+	    $text = ucfirst(preg_replace('/[0-9]+/', '', $text));
 
 	    $generator = new MarkovGenerator();
 
