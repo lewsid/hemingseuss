@@ -37,14 +37,16 @@ class FrontendLandingController extends FrontendController
 	    	$text .= file_get_contents($_SERVER['APPLICATION_ROOT'] . '/web/text/the-sax.txt');
 	    }
 	    
-	    $text = ucfirst(preg_replace('/[0-9]+/', '', $text));
+	    
 
 	    $generator = new MarkovGenerator();
 
 	    if(isset($text))
 	    {
 	        $markov_table = $generator->buildTable($text, $order);
-	        $this->output = $generator->generateText($length, $markov_table, $order);
+	        $output = $generator->generateText($length, $markov_table, $order);
+	        
+	        $this->output = ucfirst(preg_replace('/[0-9]+/', '', $output)) . "&#8230;";
 	    }
 
 		return true;
