@@ -1,0 +1,62 @@
+global:
+    settings:
+        dinkly_version: "2.26"
+        time_format: h:i a
+        languages:
+            english:
+                - en
+                - en_US
+            french: 
+                - fr
+                - fr_FR
+                - fr_CA
+
+    apps:
+        frontend:
+            default_app: true
+            default_module: landing
+            enabled: true
+            base_href: /
+            app_name: HemingSeuss
+            app_description: The humblest little MVC Framework
+        admin:
+            default_module: home
+            base_href: /admin
+            enabled: false
+            app_name: Dinkly Admin
+            app_description: Admin for the humblest little MVC
+            copyright: Dinkly
+            current_app_url: http://localhost:8888
+        api:
+            app_name: Dinkly API
+            base_href: /api
+            enabled: false
+            default_module: api
+        doc:
+            app_name: Dinkly Documentation
+            base_href: /doc
+            default_module: home
+            enabled: false
+
+    databases:
+        dinkly:
+            host: localhost
+            user: root
+            pass: root
+            name: dinkly_app
+
+        mini_ticket:
+            host: localhost
+            user: root
+            pass: root
+            name: dinkly_app
+
+        unit_test:
+            host: localhost
+            user: root
+            pass: root
+            name: dinkly_unit_test
+dev:
+    apps:
+        admin:
+            app_name: Dinkly Admin Dev
